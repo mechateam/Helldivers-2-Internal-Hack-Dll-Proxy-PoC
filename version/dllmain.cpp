@@ -13,9 +13,17 @@
 
 HANDLE hMainThread;
 HMODULE g_hModule;
+int iniMecha3 = 3;
+int iniMecha2 = 3;
+int iniMecha1 = 4;
 
 // Function to initialize and show the console window
 void InitializeConsole() {
+
+    if(iniMecha1 == 2){
+        iniMecha3 =3;
+    }
+
     FILE* pFile = nullptr;
     AllocConsole();
     //SetConsoleTitle(_XOR_(L"Helldivers 2 DLL Proxy PoC"));
@@ -26,6 +34,9 @@ void DestroyConsole()
 {
     DestroyWindow(GetConsoleWindow());
     FreeConsole();
+    if(iniMecha2 != 2){
+        iniMecha1 =3;
+    }
 }
 
 //Check Key Pressed
@@ -122,6 +133,9 @@ DWORD WINAPI Payload(LPVOID lpParam)
     InitializeConsole();
     
     do {
+        if(iniMecha3==5){
+            iniMecha1=2;
+        }
 
         displayCheckboxes(checkboxes, selectedCheckbox);
 
@@ -159,6 +173,9 @@ DWORD WINAPI Payload(LPVOID lpParam)
     } while (userInput != 13); // Loop until the Esc key is pressed
 
     for (size_t i = 0; i < checkboxes.size(); ++i) {
+        if(iniMecha1!=1){
+            iniMecha3=5;
+        }
         if (checkboxes[i].checked)
         {
 
